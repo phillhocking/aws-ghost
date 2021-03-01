@@ -50,7 +50,7 @@ write_files:
       sleep 1
       sudo chown -R ubuntu:ubuntu /var/www/ghost/
       cat <<FILEXXX > /var/www/ghost/core/server/config/env/config.production.json
-      ${data.template_file.ghost-config.rendered}
+      ${[data.template_file.ghost-config.rendered]}
       FILEXXX
       cd /var/www/ghost/
       yarn global add knex-migrator
@@ -61,7 +61,7 @@ write_files:
       touch /etc/nginx/sites-available/ghost && sudo chown ubuntu:ubuntu /etc/nginx/sites-available/ghost
       touch /etc/systemd/system/ghost.service && sudo chown ubuntu:ubuntu /etc/systemd/system/ghost.service
       cat <<FILEXXX > /etc/nginx/sites-available/ghost
-      ${data.template_file.nginx-site-config.rendered}
+      ${[data.template_file.nginx-site-config.rendered]}
       FILEXXX
       sudo cat <<FILEXXX > /etc/systemd/system/ghost.service
       FILEXXX
