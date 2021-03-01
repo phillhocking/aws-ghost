@@ -1,4 +1,3 @@
-# Configuration file
 data "template_file" "ghost-config" {
   template = file("${path.module}/configs/config.production.json.tpl")
 
