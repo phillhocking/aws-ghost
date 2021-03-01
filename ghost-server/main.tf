@@ -4,7 +4,7 @@ data "template_file" "deploy" {
 
 resource "aws_instance" "ghost" {
   ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t2.nano"
+  instance_type          = "t4g.nano"
   vpc_security_group_ids = var.security_groups
 
   tags = {
