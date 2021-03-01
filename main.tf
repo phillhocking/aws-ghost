@@ -41,7 +41,6 @@ module "ghost-blog" {
   db_name                = module.ghost-db.db-name
   db_user                = module.ghost-db.db-user
   db_pass                = module.ghost-db.db-pass
-  key_pair_location      = var.key_pair_location
   key_pair_name          = var.key_pair_name
   security_groups        = [aws_security_group.ghost-server.id]
   cloudfront_ssl_acm_arn = var.cloudfront_ssl_acm_arn
