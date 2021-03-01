@@ -12,9 +12,6 @@ variable "key_pair_name" {
   default = "terraform"
 }
 
-variable "key_pair_location" {
-}
-
 # This ACM certificate MUST be in us-east-1
 variable "cloudfront_ssl_acm_arn" {
 }
