@@ -1,0 +1,29 @@
+name: Terraform CI
+
+on: 
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - develop
+
+jobs:
+  terraform:
+    name: 'Terraform lint/validation'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code  
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform  
+      uses: hashicorp/setup-terraform@v1
+      with:
+        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+    - name: Run a Terraform Init
+      run: terraform init  
+
+    - name: Terraform Format
+      run: terraform fmt -check -recursive
+
