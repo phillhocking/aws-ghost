@@ -1,4 +1,4 @@
-data "template_file" "deploy" {
+data "templatefile" "deploy" {
   template = file("${path.module}/cloudinit.yml")
 }
 
