@@ -11,7 +11,7 @@ packages:
   - nginx-full
   - nodejs
 
-# create the ghost group
+# create the Ghost group
 groups:
   - ghost
 
@@ -22,7 +22,7 @@ runcmd:
   - chown -R ubuntu:ubuntu /home/ubuntu
   - bash /home/ubuntu/ghost.sh
   
-# Add default auto created user to docker group
+# Add default auto created user to Ghost group
 system_info:
   default_user:
     name: ubuntu
@@ -40,9 +40,12 @@ write_files:
     content: |
       #!/bin/bash
 
-      curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-      echo \"deb https://dl.yarnpkg.com/debian/ stable main\" | sudo tee /etc/apt/sources.list.d/yarn.list
-      sudo apt-get update && sudo apt-get install yarn
+      curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg
+      sudo apt-key add -
+      echo \"deb https://dl.yarnpkg.com/debian/ stable main\"
+      sudo tee /etc/apt/sources.list.d/yarn.list
+      sudo apt-get update 
+      sudo apt-get install yarn
       wget https://github.com/TryGhost/Ghost/releases/download/3.41.8/Ghost-3.41.8.zip
       sudo unzip -d /var/www/ghost Ghost-3.41.8.zip
       cd /var/www/ghost/
