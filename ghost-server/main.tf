@@ -7,7 +7,7 @@ resource "aws_instance" "ghost" {
   instance_type          = "t4g.nano"
   vpc_security_group_ids = var.security_groups
   key_name               = var.key_pair_name
-  user_data_base64 = data.template_file.deploy
+  user_data_base64       = data.template_file.deploy.rendered
 
   tags = {
     Name = "ghost-server-dev"
