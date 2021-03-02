@@ -1,4 +1,6 @@
 data "template_file" "deploy" {
+  gzip          = true
+  base64_encode = true
   template = file("${path.module}/cloudinit.yml")
 }
 
