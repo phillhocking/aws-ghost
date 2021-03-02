@@ -33,3 +33,5 @@ variable "db_pass" {
   default = "XENXY9b45$xpZ2"
 }
 
+variable "bastion_cidr" {
+}

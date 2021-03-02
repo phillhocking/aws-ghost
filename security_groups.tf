@@ -1,17 +1,12 @@
-# Get local machine's IP
-data "http" "my-ip" {
-  url = "http://icanhazip.com"
-}
-
 resource "aws_security_group" "ghost-server" {
   name        = "ghost-server"
-  description = "Allow SSH inbound, all HTTP inbound, and all outbound traffic"
+  description = "Allow SSH inbound from var.bastion_cidr, all HTTP inbound, and all outbound traffic"
 
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.my-ip.body)}/32"]
+    cidr_blocks = [var.bastion_cidr]
   }
 
   ingress {
