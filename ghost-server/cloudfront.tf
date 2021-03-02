@@ -19,7 +19,7 @@ resource "aws_cloudfront_distribution" "ghost-blog" {
   #    prevent_destroy = true
   #  }
 
-  aliases = [var.domain_name, "www.${var.domain_name}"]
+  aliases = [var.domain_name]
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
