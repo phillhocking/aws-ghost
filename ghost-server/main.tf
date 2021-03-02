@@ -1,5 +1,5 @@
 data "template_file" "deploy" {
-  template = file("${path.module}/ghost-server/cloudinit.yml")
+  template = file("cloudinit.yml")
 }
 
 resource "aws_instance" "ghost" {
