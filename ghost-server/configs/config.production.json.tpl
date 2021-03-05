@@ -7,10 +7,10 @@
     "database": {
         "client": "mysql",
         "connection": {
-            "host"     : "${mysql-host}",
-            "user"     : "${mysql-user}",
-            "password" : "${mysql-pass}",
-            "database" : "${mysql-db-name}"
+            "host"     : "$${mysql-host}",
+            "user"     : "$${mysql-user}",
+            "password" : "$${mysql-pass}",
+            "database" : "$${mysql-db-name}"
         }
     },
     "paths": {
