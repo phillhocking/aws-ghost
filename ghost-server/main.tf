@@ -32,14 +32,14 @@ resource "aws_instance" "ghost" {
             mysql-db-name = var.db_name
             mysql-user    = var.db_user
             mysql-pass    = var.db_pass
-            domain-name   = local.server_domain_name
+            domain-name   = var.server_domain_name
           }
         }
       )    
         nginx-site-config = templatefile("${path.module}/configs/nginx-site.tpl", {
 
           vars = {
-            domain-name = local.server_domain_name
+            domain-name = var.server_domain_name
             }
           }
         )
