@@ -1,4 +1,4 @@
-resource "aws_cloudfront_distribution" "ghost-blog" {
+resource "aws_cloudfront_distribution" "ghost-server" {
   origin {
     domain_name = aws_instance.ghost.public_dns
     origin_id   = "${var.name}-origin"
