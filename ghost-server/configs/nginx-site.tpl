@@ -1,7 +1,7 @@
 server {
     listen 0.0.0.0:80;
-    server_name ${domain-name};
-    access_log /var/log/nginx/${domain-name}-access.log;
+    server_name $${domain-name};
+    access_log /var/log/nginx/$${domain-name}-access.log;
 
     location / {
         proxy_set_header X-Real-IP \$remote_addr;
