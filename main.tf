@@ -33,7 +33,7 @@ module "ghost-db" {
 }
 
 # Set up the Ghost Server
-module "ghost-blog" {
+module "ghost-server" {
   source                 = "./ghost-server"
   name                   = "./ghost-server"
   domain_name            = var.domain_name
@@ -44,7 +44,9 @@ module "ghost-blog" {
   key_pair_name          = var.key_pair_name
   security_groups        = [aws_security_group.ghost-server.id]
   cloudfront_ssl_acm_arn = var.cloudfront_ssl_acm_arn
-  providers = {
+  
+
+providers = {
     aws = aws.root
   }
 }
