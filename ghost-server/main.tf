@@ -41,10 +41,10 @@ resource "aws_instance" "ghost" {
         }
       )    
         nginx-site-config = templatefile("${path.module}/configs/nginx-site.tpl", {
-
-          vars = {
-            domain-name = var.domain_name
-            }
+          domain-name = var.domain_name
+          #vars = {
+          #  domain-name = var.domain_name
+          #  }
           }
         )
         service-config-rendered = file("${path.module}/configs/ghost.service.tpl")
