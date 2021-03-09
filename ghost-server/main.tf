@@ -26,14 +26,18 @@ resource "aws_instance" "ghost" {
     {
       config = {
         ghost-config-rendered = templatefile("${path.module}/configs/config.production.json.tpl", {
-  
-          vars = {
-            mysql-host    = var.db_host
-            mysql-db-name = var.db_name
-            mysql-user    = var.db_user
-            mysql-pass    = var.db_pass
-            domain-name   = var.domain_name
-          }
+          mysql-host    = var.db_host
+          mysql-db-name = var.db_name
+          mysql-user    = var.db_user
+          mysql-pass    = var.db_pass
+          domain-name   = var.domain_name
+          #vars = {
+          #  mysql-host    = var.db_host
+          #  mysql-db-name = var.db_name
+          #  mysql-user    = var.db_user
+          #  mysql-pass    = var.db_pass
+          #  domain-name   = var.domain_name
+          #}
         }
       )    
         nginx-site-config = templatefile("${path.module}/configs/nginx-site.tpl", {
