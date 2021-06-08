@@ -27,5 +27,5 @@ resource "aws_route53_record" "red_no_www" {
   name    = "${data.aws_route53_zone.lightsail_zone.name}"    
   type    = "A"
   ttl     = "300"
-  records = ["${aws_lightsail_static_ip.dev_static_ip.ip_address}"]
+  records = [aws_lightsail_static_ip.dev_static_ip.ip_address]
 }
