@@ -1,6 +1,6 @@
-resource "aws_cloudfront_distribution" "ghost-server" {
+resource "aws_cloudfront_distribution" "ghost-lightsail" {
   origin {
-    domain_name = aws_instance.ghost.public_dns
+    domain_name = aws_route53_record.red_no_www
     origin_id   = "${var.name}-origin"
 
     custom_origin_config {

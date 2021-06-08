@@ -1,5 +1,5 @@
-resource "aws_security_group" "ghost-server" {
-  name        = "ghost-server"
+resource "aws_security_group" "ghost-lightsail" {
+  name        = "ghost-lightsail-dev"
   description = "Allow SSH inbound from var.bastion_cidr, all HTTP inbound, and all outbound traffic"
 
   ingress {
@@ -23,16 +23,3 @@ resource "aws_security_group" "ghost-server" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-resource "aws_security_group" "ghost-db" {
-  name        = "ghost-db"
-  description = "Allow SSH inbound, all HTTP inbound, and all outbound traffic"
-
-  ingress {
-    from_port       = 3306
-    to_port         = 3306
-    protocol        = "tcp"
-    security_groups = [aws_security_group.ghost-server.id]
-  }
-}
-

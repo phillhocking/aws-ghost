@@ -8,6 +8,9 @@ variable "aws_region" {
   default = "us-west-2"
 }
 
+variable "aws_availability_zone" {
+  default = "us-west-2b"
+}
 variable "key_pair_name" {
   default = "terraform"
 }
@@ -19,18 +22,6 @@ variable "cloudfront_ssl_acm_arn" {
 # Ghost Config
 variable "domain_name" {
   default = "phillhocking.com"
-}
-
-variable "db_name" {
-  default = "ghost"
-}
-
-variable "db_user" {
-  default = "ghost"
-}
-
-variable "db_pass" {
-  default = "XENXY9b45$xpZ2"
 }
 
 variable "bastion_cidr" {
