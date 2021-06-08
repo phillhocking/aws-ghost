@@ -1,6 +1,6 @@
 resource "aws_cloudfront_distribution" "ghost-lightsail" {
   origin {
-    domain_name = var.domain_name
+    domain_name = aws_lightsail_static_ip.dev_static_ip
     origin_id   = "${var.name}-origin"
 
     custom_origin_config {

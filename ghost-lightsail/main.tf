@@ -13,10 +13,6 @@ resource "aws_lightsail_static_ip" "dev_static_ip" {
   name = "dev_static_ip" 
 }
 
-resource "aws_lightsail_domain" "dev_domain" {
-  domain_name = var.domain_name
-}
-
 resource "aws_lightsail_static_ip_attachment" "static_ip_attach" {
   static_ip_name = aws_lightsail_static_ip.dev_static_ip.id
   instance_name  = aws_lightsail_instance.ghost-dev.id
