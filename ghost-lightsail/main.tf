@@ -38,5 +38,4 @@ resource "aws_route53_record" "red_no_www" {
     zone_id                 = aws_cloudfront_distribution.ghost-lightsail.hosted_zone_id 
     evaluate_target_health  = false
   }
-  records = [aws_lightsail_static_ip.dev_static_ip.ip_address]
 }
