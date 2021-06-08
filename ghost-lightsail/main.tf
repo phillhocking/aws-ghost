@@ -32,6 +32,11 @@ resource "aws_route53_record" "red_no_www" {
   zone_id = aws_route53_zone.lightsail_dev_zone.zone_id  ## Delete prepending "data." if you are creating a new hosted zone
   name    = aws_route53_zone.lightsail_dev_zone.name     ## Delete prepending "data." if you are creating a new hosted zone
   type    = "A"
-  ttl     = "300"
+
+  alias {
+    name                    = aws_cloudfront_distribution.ghost-lightsail.domain_name
+    zone_id                 = aws_cloudfront_distribution.ghost-lightsail.hosted_zone_id 
+    evaluate_target_health  = false
+  }
   records = [aws_lightsail_static_ip.dev_static_ip.ip_address]
 }
