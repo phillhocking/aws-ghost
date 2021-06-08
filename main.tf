@@ -15,7 +15,7 @@ provider "aws" {
 
 module "ghost-lightsail" {
   source                 = "./ghost-lightsail"
-  name                   = "./ghost-lightsail"
+  name                   = "ghost-lightsail-dev"
   aws_availability_zone  = var.aws_availability_zone
   domain_name            = var.domain_name
   key_pair_name          = var.key_pair_name

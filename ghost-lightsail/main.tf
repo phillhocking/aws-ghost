@@ -23,8 +23,8 @@ data "aws_route53_zone" "lightsail_zone" {
 }
 
 resource "aws_route53_record" "red_no_www" {
-  zone_id = "${data.aws_route53_zone.lightsail_zone.zone_id}" 
-  name    = "${data.aws_route53_zone.lightsail_zone.name}"    
+  zone_id = data.aws_route53_zone.lightsail_zone.zone_id 
+  name    = data.aws_route53_zone.lightsail_zone.name    
   type    = "A"
   ttl     = "300"
   records = [aws_lightsail_static_ip.dev_static_ip.ip_address]
