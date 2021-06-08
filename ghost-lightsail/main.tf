@@ -18,13 +18,18 @@ resource "aws_lightsail_static_ip_attachment" "static_ip_attach" {
   instance_name  = aws_lightsail_instance.ghost-dev.id
 }
 
-data "aws_route53_zone" "lightsail_zone" {
+## Creates a new Route53 Public Hosted Zone. Comment out for existing zone.
+resource "aws_route53_zone" "lightsail_dev_zone" {
+name = var.domain_name 
+}
+
+data "aws_route53_zone" "lightsail_dev_zone" {
   name = "${var.domain_name}." 
 }
 
 resource "aws_route53_record" "red_no_www" {
-  zone_id = data.aws_route53_zone.lightsail_zone.zone_id 
-  name    = data.aws_route53_zone.lightsail_zone.name    
+  zone_id = data.aws_route53_zone.lightsail_dev_zone.zone_id 
+  name    = data.aws_route53_zone.lightsail_dev_zone.name    
   type    = "A"
   ttl     = "300"
   records = [aws_lightsail_static_ip.dev_static_ip.ip_address]
