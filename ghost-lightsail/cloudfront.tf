@@ -13,7 +13,7 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  default_root_object = "/"
+  default_root_object = ""
 
   #  lifecycle {
   #    prevent_destroy = true
