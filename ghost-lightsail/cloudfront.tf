@@ -50,7 +50,7 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
     compress         = true
 
     forwarded_values {
-      query_string = true
+      query_string = false
       cookies {
         forward = "none"
       }
@@ -70,7 +70,7 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
     compress         = true
 
     forwarded_values {
-      query_string = true
+      query_string = false
       cookies {
         forward = "none"
       }
@@ -90,7 +90,7 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
     compress         = true
 
     forwarded_values {
-      query_string = true
+      query_string = false
       cookies {
         forward = "none"
       }
@@ -110,7 +110,7 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
     compress         = true
 
     forwarded_values {
-      query_string = true
+      query_string = false
       cookies {
         forward = "none"
       }
@@ -138,4 +138,3 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
     minimum_protocol_version = "TLSv1.1_2016"
   }
 }
-
