@@ -3,5 +3,5 @@ output "cloudfront-dns" {
 }
 
 output "server-ip" {
-  value = module.ghost-lightsail.server-ip
+  value = module.ghost-lightsail.server-info
 }

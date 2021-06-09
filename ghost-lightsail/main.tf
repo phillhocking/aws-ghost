@@ -29,8 +29,8 @@ name = "${var.domain_name}."
 #}
 
 resource "aws_route53_record" "green_no_www" {
-  zone_id = aws_route53_zone.lightsail_green.zone_id        ## Delete prepending "data." if you are creating a new hosted zone
-  name    = "${aws_route53_zone.lightsail_green.name}."     ## Delete prepending "data." if you are creating a new hosted zone
+  zone_id = aws_route53_zone.green_no_www.zone_id        ## Delete prepending "data." if you are creating a new hosted zone
+  name    = "${aws_route53_zone.green_no_www.name}."     ## Delete prepending "data." if you are creating a new hosted zone
   type    = "A"
 
   alias {
