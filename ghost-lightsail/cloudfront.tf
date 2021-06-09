@@ -1,4 +1,6 @@
 resource "aws_cloudfront_distribution" "ghost-lightsail" {
+  price_class = "PriceClass_100"
+
   origin {
     domain_name =  var.cloudfront_glue
     origin_id   = "${var.name}-origin"

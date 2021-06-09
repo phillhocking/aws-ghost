@@ -19,7 +19,7 @@ resource "aws_lightsail_static_ip_attachment" "static_ip_attach" {
 }
 
 ## Creates a new Route53 Public Hosted Zone. Comment out for existing zone.
-resource "aws_route53_zone" "lightsail_dev_zone" {
+resource "aws_route53_zone" "lightsail_green_zone" {
 name = "${var.domain_name}." 
 }
 
@@ -28,9 +28,9 @@ name = "${var.domain_name}."
 #  name = "${var.domain_name}." 
 #}
 
-resource "aws_route53_record" "red_no_www" {
-  zone_id = aws_route53_zone.lightsail_dev_zone.zone_id        ## Delete prepending "data." if you are creating a new hosted zone
-  name    = "${aws_route53_zone.lightsail_dev_zone.name}."     ## Delete prepending "data." if you are creating a new hosted zone
+resource "aws_route53_record" "green_no_www" {
+  zone_id = aws_route53_zone.lightsail_green.zone_id        ## Delete prepending "data." if you are creating a new hosted zone
+  name    = "${aws_route53_zone.lightsail_green.name}."     ## Delete prepending "data." if you are creating a new hosted zone
   type    = "A"
 
   alias {
