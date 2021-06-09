@@ -10,7 +10,7 @@ resource "aws_lightsail_instance" "ghost-dev" {
 }
 
 resource "aws_lightsail_static_ip" "dev_static_ip" {
-  name = "dev_static_ip" 
+  name = "dev_static_ip"
 }
 
 resource "aws_lightsail_static_ip_attachment" "static_ip_attach" {
@@ -20,7 +20,7 @@ resource "aws_lightsail_static_ip_attachment" "static_ip_attach" {
 
 ## Creates a new Route53 Public Hosted Zone. Comment out for existing zone.
 resource "aws_route53_zone" "green_no_www" {
-  name = "${var.domain_name}." 
+  name = "${var.domain_name}."
 }
 
 ## Points to your existing Route 53 public hosted zone. Comment this block if you are creating a new Public Hosted Zone
