@@ -29,13 +29,13 @@ resource "aws_route53_zone" "green_no_www" {
 #}
 
 resource "aws_route53_record" "green_no_www" {
-  zone_id = aws_route53_zone.green_no_www.zone_id        ## Delete prepending "data." if you are creating a new hosted zone
-  name    = "${aws_route53_zone.green_no_www.name}."     ## Delete prepending "data." if you are creating a new hosted zone
+  zone_id = aws_route53_zone.green_no_www.zone_id     ## Delete prepending "data." if you are creating a new hosted zone
+  name    = "${aws_route53_zone.green_no_www.name}."  ## Delete prepending "data." if you are creating a new hosted zone
   type    = "A"
 
   alias {
-    name                    = aws_cloudfront_distribution.ghost-lightsail.domain_name
-    zone_id                 = aws_cloudfront_distribution.ghost-lightsail.hosted_zone_id 
-    evaluate_target_health  = false
+    name                   = aws_cloudfront_distribution.ghost-lightsail.domain_name
+    zone_id                = aws_cloudfront_distribution.ghost-lightsail.hosted_zone_id 
+    evaluate_target_health = false
   }
 }
