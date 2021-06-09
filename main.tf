@@ -20,6 +20,7 @@ module "ghost-lightsail" {
   domain_name            = var.domain_name
   key_pair_name          = var.key_pair_name
   security_groups        = [aws_security_group.ghost-lightsail.id]
+  cloudfront_glue        = var.glue_record
   cloudfront_ssl_acm_arn = var.cloudfront_ssl_acm_arn
 }
 
