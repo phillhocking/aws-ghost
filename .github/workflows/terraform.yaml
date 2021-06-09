@@ -1,4 +1,4 @@
-name: Terraform CI
+name: 'Terraform'
 
 on: 
   pull_request:
@@ -6,7 +6,7 @@ on:
       - master
   push:
     branches:
-      - develop
+      - dev
 
 jobs:
   terraform:
@@ -27,3 +27,5 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check -recursive
 
+    - name: Terraform Plan
+      run: terraform plan
