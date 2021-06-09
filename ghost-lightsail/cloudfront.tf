@@ -13,13 +13,13 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  default_root_object = ""
+  default_root_object = "/"
 
   #  lifecycle {
   #    prevent_destroy = true
   #  }
 
-  aliases = [var.domain_name]
+  aliases = var.domain_name
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -28,7 +28,7 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
     compress         = true
 
     forwarded_values {
-      query_string = true
+      query_string = false
       headers      = ["*"]
 
       cookies {
