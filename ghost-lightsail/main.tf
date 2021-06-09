@@ -19,7 +19,7 @@ resource "aws_lightsail_static_ip_attachment" "static_ip_attach" {
 }
 
 ## Creates a new Route53 Public Hosted Zone. Comment out for existing zone.
-resource "aws_route53_zone" "lightsail_green_zone" {
+resource "aws_route53_zone" "green_no_www" {
 name = "${var.domain_name}." 
 }
 
