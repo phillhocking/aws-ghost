@@ -1,7 +1,7 @@
 resource "aws_cloudfront_distribution" "ghost-lightsail" {
   origin {
     domain_name = aws_lightsail_static_ip.dev_static_ip.ip_address 
-    origin_id   = "${var.name}-origin"
+    origin_id   = var.cloudfront_glue
 
     custom_origin_config {
       http_port              = 80
