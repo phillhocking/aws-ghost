@@ -24,18 +24,18 @@ resource "aws_route53_zone" "green_no_www" {
 }
 
 ## Points to your existing Route 53 public hosted zone. Comment this block if you are creating a new Public Hosted Zone
-  #data "aws_route53_zone" "hosted_zone" {
-  #  name = "${var.domain_name}." 
+#data "aws_route53_zone" "hosted_zone" {
+#  name = "${var.domain_name}." 
 #}
 
 resource "aws_route53_record" "green_no_www" {
-  zone_id = aws_route53_zone.green_no_www.zone_id     ## Delete prepending "data." if you are creating a new hosted zone
-  name    = "${aws_route53_zone.green_no_www.name}."  ## Delete prepending "data." if you are creating a new hosted zone
+  zone_id = aws_route53_zone.green_no_www.zone_id    ## Delete prepending "data." if you are creating a new hosted zone
+  name    = "${aws_route53_zone.green_no_www.name}." ## Delete prepending "data." if you are creating a new hosted zone
   type    = "A"
 
   alias {
     name                   = aws_cloudfront_distribution.ghost-lightsail.domain_name
-    zone_id                = aws_cloudfront_distribution.ghost-lightsail.hosted_zone_id 
+    zone_id                = aws_cloudfront_distribution.ghost-lightsail.hosted_zone_id
     evaluate_target_health = false
   }
 }
