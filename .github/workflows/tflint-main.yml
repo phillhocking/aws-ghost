@@ -26,4 +26,4 @@ jobs:
       run: terraform fmt -check -recursive -diff
 
     - name: Terraform Validate
-      run:  terraform validate -no-colo
+      run:  terraform validate -no-color
