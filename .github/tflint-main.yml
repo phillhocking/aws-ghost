@@ -1,12 +1,9 @@
-name: 'Terraform'
+name: 'tflint-main'
 
 on: 
   pull_request:
     branches:
-      - master
-  push:
-    branches:
-      - dev
+      - main
 
 jobs:
   terraform:
@@ -19,6 +16,7 @@ jobs:
     - name: Setup Terraform  
       uses: hashicorp/setup-terraform@v1
       with:
+        terraform_version: 1.0.0
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     - name: Run a Terraform Init
@@ -26,3 +24,6 @@ jobs:
 
     - name: Terraform Format
       run: terraform fmt -check -recursive -diff
+
+    - name: Terraform Validate
+      run:  terraform validate -no-colo
