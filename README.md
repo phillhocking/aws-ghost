@@ -1,5 +1,5 @@
 ### aws-ghost
-![dev](https://github.com/phillhocking/aws-ghost/actions/workflows/tflint-dev.yml/badge.svg?branch=dev) ![main](https://github.com/phillhocking/aws-ghost/actions/workflows/terraform.yaml/badge.svg)
+![dev](https://github.com/phillhocking/aws-ghost/actions/workflows/tflint-dev.yml/badge.svg?branch=dev) ![main](https://github.com/phillhocking/aws-ghost/actions/workflows/tflint-main.yml/badge.svg)
 
 I started my Terraform adventure nearly three years ago with the goal of deploying the Ghost CMS to EC2 and you would not even believe as a newcomer to Cloud/Dev Ops and CI/CD pipelines how much of a ride I was in for. I came back to this project after hitting a pretty big wall with it and it is actually pretty remarkable how much I still struggled with it even with all the fancy new AWS services, like Lightsail, that are specifically intended for quickly prototyping/deploying/set-and-forget 'simple' hosting for stuff like personal blogs and MVP/test environments and the like. 
 
