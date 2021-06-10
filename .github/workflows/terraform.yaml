@@ -26,6 +26,3 @@ jobs:
 
     - name: Terraform Format
       run: terraform fmt -check -recursive -diff
-
-    - name: Terraform Plan
-      run: terraform plan
