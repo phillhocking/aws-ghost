@@ -7,3 +7,4 @@ terraform {
       name = "aws-ghost-dev"
     }
   }
+}
