@@ -1,10 +1,10 @@
 terraform {
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "excelsior"
+    organization = "phillhocking"
 
     workspaces {
-      name = "phillhocking-com-dev"
+      name = "aws-ghost-dev"
     }
   }
 }
