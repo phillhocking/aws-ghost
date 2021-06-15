@@ -53,6 +53,8 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
 
     forwarded_values {
       query_string = true
+      headers      = ["*"]
+
       cookies {
         forward = "none"
       }
@@ -73,6 +75,7 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
 
     forwarded_values {
       query_string = true
+      headers      = ["*"]
       cookies {
         forward = "none"
       }
