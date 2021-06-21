@@ -45,5 +45,5 @@ resource "aws_route53_record" "green_www" {
   name    = "www.${aws_route53_zone.green_no_www.name}." ## Delete prepending "data." if you are creating a new hosted zone
   type    = "CNAME"
   ttl     = "300"
-  records = ["@"]
+  records = ["${var.domain_name}."]
 }
