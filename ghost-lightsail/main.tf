@@ -39,3 +39,11 @@ resource "aws_route53_record" "green_no_www" {
     evaluate_target_health = false
   }
 }
+
+resource "aws_route53_record" "green_www" {
+  zone_id = aws_route53_zone.green_no_www.zone_id        ## Delete prepending "data." if you are creating a new hosted zone
+  name    = "www.${aws_route53_zone.green_no_www.name}." ## Delete prepending "data." if you are creating a new hosted zone
+  type    = "CNAME"
+  ttl     = "300"
+  records = ["${var.domain_name}."]
+}
