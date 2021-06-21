@@ -8,7 +8,7 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
     custom_origin_config {
       http_port              = 80
       https_port             = 443
-      origin_protocol_policy = "allow-all"
+      origin_protocol_policy = "match-viewer"
       origin_ssl_protocols   = ["TLSv1.2"]
     }
   }
@@ -138,8 +138,9 @@ resource "aws_cloudfront_distribution" "ghost-lightsail" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = var.cloudfront_ssl_acm_arn
-    ssl_support_method       = "sni-only"
-    minimum_protocol_version = "TLSv1.1_2016"
+    acm_certificate_arn            = var.cloudfront_ssl_acm_arn
+    cloudfront_default_certificate = true
+    ssl_support_method             = "sni-only"
+    minimum_protocol_version       = "TLSv1"
   }
 }
