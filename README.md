@@ -202,7 +202,7 @@ Syntax OK
 ✔ Validating config
 ✔ Checking memory availability
 ✔ Checking binary dependencies
-✔ Starting Ghost: 127-0-1-1
+✔ Starting Ghost: 127-0-1-1 
 
 ------------------------------------------------------------------------------
 
